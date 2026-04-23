@@ -6,15 +6,25 @@
 <title>PWAVES</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="assets/css/style.css">
 
 </head>
 
 <body>
 
+<!-- TOP NAV (Desktop) -->
+<div class="top-nav">
+    <h2>PWAVES</h2>
+    <div>
+        <a href="#">Home</a>
+        <a href="#">Movies</a>
+        <a href="#">Contact</a>
+    </div>
+</div>
+
 <!-- HERO -->
 <div class="hero">
-    <div class="hero-overlay"></div>
+    <div class="overlay"></div>
     <div class="hero-content">
         <h1>PWAVES</h1>
         <p>AI Film Director</p>
@@ -58,23 +68,23 @@
 
 <!-- POPUP -->
 <div id="popup" class="popup" onclick="closePopup()">
-    <div class="popup-content">
+    <div class="popup-box">
         <h2>COMING SOON</h2>
     </div>
 </div>
 
 <!-- VIDEO -->
 <div id="video" class="popup">
-    <iframe id="frame" frameborder="0" allowfullscreen></iframe>
+    <iframe id="frame" allowfullscreen></iframe>
 </div>
 
 <!-- FOOTER -->
 <div class="footer">
-    © 2026 PWAVES
+    © 2026 PWAVES ENTERTAINMENT
 </div>
 
-<!-- NAV -->
-<div class="nav">
+<!-- MOBILE NAV -->
+<div class="mobile-nav">
     <a href="#">Home</a>
     <a href="#">Movies</a>
     <a href="#">Contact</a>
@@ -84,17 +94,14 @@
 function openPopup() {
     document.getElementById("popup").style.display = "flex";
 }
-
 function closePopup() {
     document.getElementById("popup").style.display = "none";
 }
-
 function playVideo(url) {
     document.getElementById("video").style.display = "flex";
     document.getElementById("frame").src = url + "?autoplay=1";
 }
-
-document.getElementById("video").onclick = function() {
+document.getElementById("video").onclick = function () {
     this.style.display = "none";
     document.getElementById("frame").src = "";
 };
