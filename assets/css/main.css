@@ -1,138 +1,111 @@
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: #000;
-    color: #fff;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PWAVES</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+<!-- TOP NAV (Desktop) -->
+<div class="top-nav">
+    <h2>PWAVES</h2>
+    <div>
+        <a href="#">Home</a>
+        <a href="#">Movies</a>
+        <a href="#">Contact</a>
+    </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+        <h1>PWAVES</h1>
+        <p>AI Film Director</p>
+        <button class="play-btn">▶ Play</button>
+    </div>
+</div>
+
+<!-- WATCH NOW -->
+<div class="section">
+    <h2>Watch Now</h2>
+    <div class="scroll">
+        <div class="card">
+            <img src="images/FB.jpeg" onclick="playVideo('https://www.youtube.com/embed/-mdn3oECRVM')">
+        </div>
+        <div class="card">
+            <img src="images/DF.JPEG" onclick="playVideo('https://www.youtube.com/embed/S_YFGUkV2FE')">
+        </div>
+    </div>
+</div>
+
+<!-- COMING SOON -->
+<div class="section">
+    <h2>Coming Soon</h2>
+    <div class="scroll">
+        <div class="card"><img src="images/travel.jpg" onclick="openPopup()"></div>
+        <div class="card"><img src="images/time.jpg" onclick="openPopup()"></div>
+        <div class="card"><img src="images/feelgoof.jpg" onclick="openPopup()"></div>
+    </div>
+</div>
+
+<!-- CONTACT -->
+<div class="section">
+    <h2>Contact</h2>
+    <form action="https://formspree.io/f/xdaywpvp" method="POST">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <textarea name="message" placeholder="Message"></textarea>
+        <button type="submit">Send</button>
+    </form>
+</div>
+
+<!-- POPUP -->
+<div id="popup" class="popup" onclick="closePopup()">
+    <div class="popup-box">
+        <h2>COMING SOON</h2>
+    </div>
+</div>
+
+<!-- VIDEO -->
+<div id="video" class="popup">
+    <iframe id="frame" allowfullscreen></iframe>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    © 2026 PWAVES ENTERTAINMENT
+</div>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav">
+    <a href="#">Home</a>
+    <a href="#">Movies</a>
+    <a href="#">Contact</a>
+</div>
+
+<script>
+function openPopup() {
+    document.getElementById("popup").style.display = "flex";
 }
-
-/* HERO */
-.hero {
-    position: relative;
-    height: 80vh;
-    background: url('../images/pwaves.jpeg') center/cover no-repeat;
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
 }
-
-.hero-overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, #000, transparent);
+function playVideo(url) {
+    document.getElementById("video").style.display = "flex";
+    document.getElementById("frame").src = url + "?autoplay=1";
 }
+document.getElementById("video").onclick = function () {
+    this.style.display = "none";
+    document.getElementById("frame").src = "";
+};
+</script>
 
-.hero-content {
-    position: absolute;
-    bottom: 40px;
-    left: 20px;
-}
-
-.hero h1 {
-    font-size: 32px;
-}
-
-.play-btn {
-    background: #e50914;
-    border: none;
-    padding: 10px 20px;
-    color: #fff;
-}
-
-/* SECTION */
-.section {
-    padding: 20px;
-}
-
-.section h2 {
-    margin-bottom: 10px;
-}
-
-/* SCROLL */
-.scroll {
-    display: flex;
-    overflow-x: auto;
-    gap: 10px;
-}
-
-.card {
-    min-width: 140px;
-}
-
-.card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 6px;
-    transition: 0.3s;
-}
-
-.card img:hover {
-    transform: scale(1.1);
-}
-
-/* POPUP */
-.popup {
-    display: none;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.85);
-    top: 0;
-    left: 0;
-    justify-content: center;
-    align-items: center;
-}
-
-.popup-content {
-    background: #111;
-    padding: 20px;
-    border: 2px solid #e50914;
-    text-align: center;
-}
-
-/* VIDEO */
-#video iframe {
-    width: 90%;
-    height: 300px;
-}
-
-/* FOOTER */
-.footer {
-    text-align: center;
-    padding: 20px;
-    color: #777;
-}
-
-/* NAV */
-.nav {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background: #000;
-    display: flex;
-    justify-content: space-around;
-    padding: 10px;
-    border-top: 1px solid #222;
-}
-
-.nav a {
-    color: #aaa;
-    text-decoration: none;
-}
-
-.nav a:hover {
-    color: #e50914;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-    .hero {
-        height: 60vh;
-    }
-
-    .card {
-        min-width: 120px;
-    }
-
-    #video iframe {
-        height: 220px;
-    }
-}
+</body>
+</html>
