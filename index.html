@@ -1,48 +1,99 @@
-<div class="hero">
-  <div class="hero-text">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PWAVES ENTERTAINMENT</title>
+
+<link rel="stylesheet" href="assets/css/main.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="overlay"></div>
+  <div class="hero-content">
     <h1>PWAVES</h1>
     <p>AI Film Director</p>
   </div>
-</div>
+</section>
 
-<div class="section">
-  <h2>Watch Now</h2>
-  <div class="scroll">
-    <img src="images/FB.jpeg" onclick="playVideo('https://www.youtube.com/embed/-mdn3oECRVM')">
-    <img src="images/DF.JPEG" onclick="playVideo('https://www.youtube.com/embed/S_YFGUkV2FE')">
+<!-- MOVIES -->
+<section class="movies">
+  <h2>Featured Projects</h2>
+
+  <div class="movie-row">
+
+    <div class="movie-card" onclick="playVideo('https://www.youtube.com/embed/-mdn3oECRVM')">
+      <img src="images/FB.jpeg">
+      <h3>Project One</h3>
+    </div>
+
+    <div class="movie-card" onclick="playVideo('https://www.youtube.com/embed/S_YFGUkV2FE')">
+      <img src="images/DF.JPEG">
+      <h3>Project Two</h3>
+    </div>
+
+    <div class="movie-card" onclick="openPopup()">
+      <img src="images/travel.jpg">
+      <h3>Coming Soon</h3>
+    </div>
+
   </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact">
+  <h2>Contact</h2>
+
+  <form action="https://formspree.io/f/xdaywpvp" method="POST">
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <textarea name="message" placeholder="Message"></textarea>
+    <button type="submit">Send</button>
+  </form>
+
+</section>
+
+<!-- VIDEO MODAL -->
+<div id="videoModal" class="video-modal">
+  <span class="close" onclick="closeVideo()">&times;</span>
+  <iframe id="videoFrame" allowfullscreen></iframe>
 </div>
 
-<div class="section">
-  <h2>Coming Soon</h2>
-  <div class="scroll">
-    <img src="images/travel.jpg" onclick="openPopup()">
-    <img src="images/time.jpg" onclick="openPopup()">
-    <img src="images/feelgoof.jpg" onclick="openPopup()">
-  </div>
-</div>
-
+<!-- POPUP -->
 <div id="popup" class="popup" onclick="closePopup()">
-  <h2>COMING SOON</h2>
+  <div class="popup-content">
+    <h2>COMING SOON</h2>
+  </div>
 </div>
 
-<div id="video" class="popup">
-  <iframe id="frame"></iframe>
-</div>
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 PWAVES ENTERTAINMENT</p>
+</footer>
 
 <script>
+function playVideo(url){
+  document.getElementById("videoModal").style.display="flex";
+  document.getElementById("videoFrame").src = url + "?autoplay=1";
+}
+
+function closeVideo(){
+  document.getElementById("videoModal").style.display="none";
+  document.getElementById("videoFrame").src="";
+}
+
 function openPopup(){
   document.getElementById("popup").style.display="flex";
 }
+
 function closePopup(){
   document.getElementById("popup").style.display="none";
 }
-function playVideo(url){
-  document.getElementById("video").style.display="flex";
-  document.getElementById("frame").src=url+"?autoplay=1";
-}
-document.getElementById("video").onclick=function(){
-  this.style.display="none";
-  document.getElementById("frame").src="";
-}
 </script>
+
+</body>
+</html>
