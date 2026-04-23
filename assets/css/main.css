@@ -32,6 +32,7 @@ body {
   height: 220px;
   object-fit: cover;
   border-radius: 8px;
+  flex-shrink: 0;
 }
 
 .popup {
@@ -47,4 +48,11 @@ body {
 iframe {
   width: 90%;
   height: 250px;
+}
+
+@media (min-width: 768px) {
+  .scroll img {
+    width: 220px;
+    height: 320px;
+  }
 }
