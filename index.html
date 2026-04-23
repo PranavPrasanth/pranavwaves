@@ -1,111 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PWAVES</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/main.css">
-
-</head>
-
 <body>
 
-<!-- TOP NAV (Desktop) -->
-<div class="top-nav">
-    <h2>PWAVES</h2>
-    <div>
-        <a href="#">Home</a>
-        <a href="#">Movies</a>
-        <a href="#">Contact</a>
-    </div>
-</div>
-
-<!-- HERO -->
 <div class="hero">
-    <div class="overlay"></div>
-    <div class="hero-content">
-        <h1>PWAVES</h1>
-        <p>AI Film Director</p>
-        <button class="play-btn">▶ Play</button>
-    </div>
+  <div class="hero-text">
+    <h1>PWAVES</h1>
+    <p>AI Film Director</p>
+  </div>
 </div>
 
-<!-- WATCH NOW -->
 <div class="section">
-    <h2>Watch Now</h2>
-    <div class="scroll">
-        <div class="card">
-            <img src="images/FB.jpeg" onclick="playVideo('https://www.youtube.com/embed/-mdn3oECRVM')">
-        </div>
-        <div class="card">
-            <img src="images/DF.JPEG" onclick="playVideo('https://www.youtube.com/embed/S_YFGUkV2FE')">
-        </div>
-    </div>
+  <h2>Watch Now</h2>
+  <div class="scroll">
+    <img src="images/FB.jpeg" onclick="playVideo('https://www.youtube.com/embed/-mdn3oECRVM')">
+    <img src="images/DF.JPEG" onclick="playVideo('https://www.youtube.com/embed/S_YFGUkV2FE')">
+  </div>
 </div>
 
-<!-- COMING SOON -->
 <div class="section">
-    <h2>Coming Soon</h2>
-    <div class="scroll">
-        <div class="card"><img src="images/travel.jpg" onclick="openPopup()"></div>
-        <div class="card"><img src="images/time.jpg" onclick="openPopup()"></div>
-        <div class="card"><img src="images/feelgoof.jpg" onclick="openPopup()"></div>
-    </div>
-</div>
-
-<!-- CONTACT -->
-<div class="section">
-    <h2>Contact</h2>
-    <form action="https://formspree.io/f/xdaywpvp" method="POST">
-        <input type="text" name="name" placeholder="Name" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <textarea name="message" placeholder="Message"></textarea>
-        <button type="submit">Send</button>
-    </form>
+  <h2>Coming Soon</h2>
+  <div class="scroll">
+    <img src="images/travel.jpg" onclick="openPopup()">
+    <img src="images/time.jpg" onclick="openPopup()">
+    <img src="images/feelgoof.jpg" onclick="openPopup()">
+  </div>
 </div>
 
 <!-- POPUP -->
 <div id="popup" class="popup" onclick="closePopup()">
-    <div class="popup-box">
-        <h2>COMING SOON</h2>
-    </div>
+  <h2>COMING SOON</h2>
 </div>
 
 <!-- VIDEO -->
 <div id="video" class="popup">
-    <iframe id="frame" allowfullscreen></iframe>
-</div>
-
-<!-- FOOTER -->
-<div class="footer">
-    © 2026 PWAVES ENTERTAINMENT
-</div>
-
-<!-- MOBILE NAV -->
-<div class="mobile-nav">
-    <a href="#">Home</a>
-    <a href="#">Movies</a>
-    <a href="#">Contact</a>
+  <iframe id="frame" allowfullscreen></iframe>
 </div>
 
 <script>
-function openPopup() {
-    document.getElementById("popup").style.display = "flex";
+function openPopup(){
+  document.getElementById("popup").style.display="flex";
 }
-function closePopup() {
-    document.getElementById("popup").style.display = "none";
+function closePopup(){
+  document.getElementById("popup").style.display="none";
 }
-function playVideo(url) {
-    document.getElementById("video").style.display = "flex";
-    document.getElementById("frame").src = url + "?autoplay=1";
+function playVideo(url){
+  document.getElementById("video").style.display="flex";
+  document.getElementById("frame").src=url+"?autoplay=1";
 }
-document.getElementById("video").onclick = function () {
-    this.style.display = "none";
-    document.getElementById("frame").src = "";
-};
+document.getElementById("video").onclick=function(){
+  this.style.display="none";
+  document.getElementById("frame").src="";
+}
 </script>
 
 </body>
-</html>
